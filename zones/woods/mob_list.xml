@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xml-data>
+  <mob_list>
+    <mob>zones/woods/mob/bear1.xml</mob>
+    <mob>zones/woods/mob/bear2.xml</mob>
+    <mob>zones/woods/mob/bear3.xml</mob>
+    <mob>zones/woods/mob/bear4.xml</mob>
+    <mob>zones/woods/mob/bear5.xml</mob>
+    <mob>zones/woods/mob/goblin1.xml</mob>
+    <mob>zones/woods/mob/goblin2.xml</mob>
+    <mob>zones/woods/mob/goblin3.xml</mob>
+    <mob>zones/woods/mob/goblin4.xml</mob>
+    <mob>zones/woods/mob/goblin5.xml</mob>
+  </mob_list>
+</xml-data>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xml-data>
+  <mob_file>
+    <model>zones/woods/models/bear.xml</model>
+    <rotate_x>0.0</rotate_x>
+    <rotate_y>1.0</rotate_y>
+    <rotate_z>0.0</rotate_z>
+    <rotate_w>0.0</rotate_w>
+    <translate_x>20.0</translate_x>
+    <translate_y>0.0</translate_y>
+    <translate_z>-150.0</translate_z>
+    <scale_x>0.125</scale_x>
+    <scale_y>0.125</scale_y>
+    <scale_z>0.125</scale_z>
+    <facing_x>0.0</facing_x>
+    <facing_y>0.0</facing_y>
+    <facing_z>1.0</facing_z>
+    <radius_mod>0.75</radius_mod>
+    <aggressive>0</aggressive>
+    <path_size>3</path_size>
+    <rot_1>-90.0</rot_1>
+    <distance_1>50.0</distance_1>
+    <rot_2>-90.0</rot_2>
+    <distance_2>150.0</distance_2>
+    <rot_3>-120.0</rot_3>
+    <distance_3>70.7</distance_3>
+    <speed>40.0</speed>
+    <damage>5</damage>
+    <curHealth>50</curHealth>
+    <maxHealth>50</maxHealth>
+    <maxChase>100.0</maxChase>
+    <aggrDist>-1.0</aggrDist>
+    <attackSpeed>2.0</attackSpeed>
+  </mob_file>
+</xml-data>

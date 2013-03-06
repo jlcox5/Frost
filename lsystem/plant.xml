@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<lsystem-specs>
+  <startX>0</startX>
+  <startY>-100</startY>
+  <startZ>0</startZ>
+  <facingX>0</facingX>
+  <facingY>1</facingY>
+  <facingZ>0</facingZ>
+  <angle>25.7</angle>
+  <stepSize>3</stepSize>
+  <levels>4</levels>
+  <startSymbol>F</startSymbol>
+  <grammar>
+    <rule nonterminal="F">F[+F]F[-F]F</rule>
+  </grammar>
+</lsystem-specs>

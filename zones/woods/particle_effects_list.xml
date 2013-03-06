@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xml-data>
+  <particle_effects_list>
+    <particle_effects>zones/woods/particle_effects/snow_1.xml</particle_effects>
+    <particle_effects>zones/woods/particle_effects/snow_2.xml</particle_effects>
+    <particle_effects>zones/woods/particle_effects/snow_3.xml</particle_effects>
+    <particle_effects>zones/woods/particle_effects/snow_4.xml</particle_effects>
+    <particle_effects>zones/woods/particle_effects/snow_5.xml</particle_effects>
+    <particle_effects>zones/woods/particle_effects/snow_6.xml</particle_effects>
+    <particle_effects>zones/woods/particle_effects/snow_7.xml</particle_effects>
+    <particle_effects>zones/woods/particle_effects/snow_8.xml</particle_effects>
+    <particle_effects>zones/woods/particle_effects/snow_9.xml</particle_effects>
+  </particle_effects_list>
+</xml-data>

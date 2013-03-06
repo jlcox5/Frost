@@ -1,0 +1,74 @@
+Jonathan Cox
+CPSC 870
+Assignement 3
+
+This project aims to set the foundation for a robust and fully functional
+3D MMO game engine.  In this assignment, the following has been added to the
+intial framework:
+
+  - A world object (WOB) class has been created with two children classes,
+    Scene Object (SceneObj) and Mobile object (MOB).  A SceneObj object is a
+    static model, like the trees that will not be interacted with and will
+    have limited movement.  A MOB can be anything the player interacts with.
+  - The zone and world classes have been implemented.  These use an extensive
+    set of xml files to determine which WOB's to load and where to put them.
+    Currently, only one zone is defined, however it is easily extensible.  The
+    folder that houses the xml files is "zones".
+  - A player object has been created.  Right now it only keeps track of the
+    model to load, max and current health, and the initial position.  More will
+    be added later.
+  - A very VERY simple menu was created.  The HUD system is also easily extensible
+    and is based on the xml files listed in the hud directory.  Currently, only
+    one menu exists, and is shown and hidden by hitting F1.
+  - A sound system was implemented.  It currently only plays background music,
+    will be extended and incorporated into the zone system so that each zone
+    will determine which sounds will load and be played.
+  - The framework for a particle system is in place, but unfortunately I ran out
+    of time before I could finish implementing it.  I will add this soon!
+
+The directory structure is as follows:
+   assets: contains fbx files
+   ui_assets: contains fbx files used in the hud system
+   xml: contains xml data files
+   lsystem: stores all of the xml lsystem grammar files
+   bin: store the executable main
+   obj: stores all obj files generated at compile time
+   Eigen: store the header files for the Eigen vectore/matrix libraries
+   zones: contains the xml files that define zones in the game
+   sound: holds the sound files used
+   player: holds the xml files that determine initial player status, model
+     used, etc
+   hud: holds the xml files that define the hud system
+
+The class diagram is shown in ClassDiagram.dia.  The new classes have been added
+but not fully fleshed out.  I will do this very very soon, and apologize for not
+having it included.  Dr. Malloy told me to not worry about running Valgrind reports,
+so that file has not been included.
+
+To run the program, use: ./bin/main
+
+Keys: 
+  Esc: Quit the application
+  a/d: Rotate the camera around the player position (magenta dot) clockwise/
+       counter clockwise
+  w/s: Translate the camera forward/backward
+  q/e: Strafe left/right
+  F1:  Display/Hide the menu
+
+** Notes on compiling: Please note that if complining on a 32 bit system, the 
+   Makefile requires the following changes:
+   Line 14: LIBDIR = /usr/lib/gcc4/x86
+   Line 59: CXXFLAGS = -m32 $(GCC_DEBUG_FLAGS) -DFBXSDK_SHARED
+   Line 59: LDFLAGS = -m32 $(GCC_LINK_FLAGS)
+
+   Also note that this program requires that the FBX SDK library be installed
+   as per the email sent previously.
+
+The camera keys still have a tendency to stick, though not nearly as bad as before.
+For some reason, the texture associated with the menu did not export properly in the
+fbx file.  I tried this several times without getting a correctly result.  I will try
+to figure out why this is the case.  Thank you for taking the time to read all of this!
+
+
+
+

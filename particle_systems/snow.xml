@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xml-data>
+  <particle_system>
+    <system_name>snow</system_name>
+    <tr_x>100</tr_x>
+    <tr_y>50</tr_y>
+    <tr_z>100</tr_z>
+    <bl_x>-100</bl_x>
+    <bl_y>50</bl_y>
+    <bl_z>-100</bl_z>
+    <ls>20.0</ls>
+    <mp>1000</mp>
+    <sr>1</sr>
+    <maxV>3</maxV>
+    <minV>1</minV>
+    <maxA>0</maxA>
+    <minA>0</minA>
+    <maxM>4</maxM>
+    <minM>1</minM>
+    <effects>jitter</effects>
+  </particle_system>
+</xml-data>

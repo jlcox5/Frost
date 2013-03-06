@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<lsystem-specs>
+
+<facing>270</facing>
+<startX>200</startX>
+<startY>200</startY>
+<levels>2</levels>
+<angle>30</angle>
+<strokeLength>20</strokeLength>
+<strokeWidth>2</strokeWidth>
+<strokeColor>
+    <red>0</red>
+  <green>0</green>
+   <blue>0</blue>
+</strokeColor>
+
+<startSymbol>F</startSymbol>
+<grammar>
+<rule nonterminal="F">F[+F]F[-F]F</rule>
+</grammar>
+
+</lsystem-specs>

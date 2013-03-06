@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<lsystem-specs>
+  <startX>0</startX>
+  <startY>0</startY>
+  <startZ>0</startZ>
+  <facingX>0</facingX>
+  <facingY>1</facingY>
+  <facingZ>0</facingZ>
+  <angle>30</angle>
+  <stepSize>0.750</stepSize>
+  <levels>4</levels>
+  <boundRad>0.05</boundRad>
+  <startSymbol>A</startSymbol>
+  <grammar>
+    <rule nonterminal="C">F+F</rule>
+    <rule nonterminal="F">F[C]C-C</rule>
+    <rule nonterminal="B">B</rule>
+    <rule nonterminal="A">[F][F][F][F][F][F][F][F][F][F][F][F][F][F][F][F][F][F]</rule>
+  </grammar>
+</lsystem-specs>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xml-data>
+  <model_file>
+    <model_name>terrain</model_name>
+    <mesh_file>assets/snow_field.fbx</mesh_file>
+    <texture_file></texture_file>
+    <animation_file></animation_file>
+  </model_file>
+</xml-data>

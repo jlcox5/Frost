@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xml_data>
+  <camera>
+    <pos_x>0</pos_x>
+    <pos_y>3</pos_y>
+    <pos_z>10</pos_z>
+    <aim_x>0</aim_x>
+    <aim_y>0.5</aim_y>
+    <aim_z>0</aim_z>
+    <up_x>0</up_x>
+    <up_y>1</up_y>
+    <up_z>0</up_z>
+    <fov>60</fov>
+    <aspect_x>1120</aspect_x>
+    <aspect_y>700</aspect_y>
+    <near_clip>0.1</near_clip>
+    <far_clip>2000</far_clip>
+  </camera>
+</xml_data>

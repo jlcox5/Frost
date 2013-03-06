@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xml-data>
+  <player_file>
+    <mob_file>player/player_mob.xml</mob_file>
+    <current_health>100</current_health>
+    <max_health>100</max_health>
+  </player_file>
+</xml-data>

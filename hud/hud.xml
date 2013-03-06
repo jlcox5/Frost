@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xml-data>
+  <zone_info>
+    <hud_name>directions</hud_name>
+    <model_list>hud/model_list.xml</model_list>
+    <sceneobj_list>hud/sceneobj_list.xml</sceneobj_list>
+  </zone_info>
+</xml-data>

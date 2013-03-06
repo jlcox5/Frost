@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xml-data>
+  <combat_assets_file>
+    <projectile>combat_assets/projectiles/arrow.xml</projectile>
+  </combat_assets_file>
+</xml-data>

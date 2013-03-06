@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xml-data>
+  <sceneobj_file>
+    <model>zones/woods/models/lsystem_tree.xml</model>
+    <rotate_x>0.0</rotate_x>
+    <rotate_y>1.0</rotate_y>
+    <rotate_z>0.0</rotate_z>
+    <rotate_w>10.0</rotate_w>
+    <translate_x>-35.0</translate_x>
+    <translate_y>0.0</translate_y>
+    <translate_z>22.0</translate_z>
+    <scale_x>9.0</scale_x>
+    <scale_y>9.0</scale_y>
+    <scale_z>9.0</scale_z>
+    <radius_mod>2.0</radius_mod>
+  </sceneobj_file>
+</xml-data>

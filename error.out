@@ -1,0 +1,716 @@
+Client...
+Constructed ParseXML
+Initializing Assets.... 
+Initializing Assets.... 
+Building camera!
+Trying to build a camera.
+Building renderer
+Building clock...
+Client initialized.
+Loading game.... 
+Building sound...
+Sounds size: 0
+Building world...
+Loading zone file from zone: zones/woods/woods.xml
+Mesh FN: assets/terrain.fbx
+Model name: terrain
+Loading mesh: assets/terrain.fbx
+   Mesh not found: assets/terrain.fbx
+Creating lManager
+Loading fbx file: assets/terrain.fbx
+   Storing mesh.... 
+UV Count: 1
+Normal Count: 1
+Material Count: 1
+All Same!
+UV Names: uvSet1
+Storing fbx mesh: assets/terrain.fbx  at address: 0x7f93a1244b60
+Loading image: /home/jlcox/workspace/frost/assets/terrain.fbm/terrain.tga
+   Load complete.
+   Finished loading fbx file.
+Building model...
+   mesh: 0x7f93a1244b60
+Mesh FN: assets/sky_day_clear.fbx
+Model name: sky
+Loading mesh: assets/sky_day_clear.fbx
+   Mesh not found: assets/sky_day_clear.fbx
+Loading fbx file: assets/sky_day_clear.fbx
+   Storing mesh.... 
+UV Count: 1
+Normal Count: 1
+Material Count: 1
+All Same!
+UV Names: map1
+Storing fbx mesh: assets/sky_day_clear.fbx  at address: 0x7f93a30f4cf0
+Loading image: /home/jlcox/workspace/frost/assets/sky_day_clear.fbm/sky_daytime_blue.tga
+   Load complete.
+   Finished loading fbx file.
+Building model...
+   mesh: 0x7f93a30f4cf0
+Loading zone model list file: zones/woods/model_list.xml
+   Loading model file: zones/woods/models/lsystem_tree.xml
+Mesh FN: lsystem/test.xml
+Model name: lsystem_tree
+Loading mesh: lsystem/test.xml
+   Mesh not found: lsystem/test.xml
+Building lsystem...
+     Setting xml values...
+     Finding start symbol values...
+     Parsing grammar...
+
+LSystem Grammar: 
+Non-T	RHS
+A	[F][F][F][F][F][F][F][F][F][F][F][F][F][F][F][F][F][F]
+B	B
+C	F+F
+F	F[C]C-C
+
+   Load system complete.
+   Sentence build complete.
+sentence: 
+[F[C]C-C[F+F]F+F-F+F[F[C]C-C+F[C]C-C]F[C]C-C+F[C]C-C-F[C]C-C+F[C]C-C][F[C]C-C[F+F]F+F-F+F[F[C]C-C+F[C]C-C]F[C]C-C+F[C]C-C-F[C]C-C+F[C]C-C][F[C]C-C[F+F]F+F-F+F[F[C]C-C+F[C]C-C]F[C]C-C+F[C]C-C-F[C]C-C+F[C]C-C][F[C]C-C[F+F]F+F-F+F[F[C]C-C+F[C]C-C]F[C]C-C+F[C]C-C-F[C]C-C+F[C]C-C][F[C]C-C[F+F]F+F-F+F[F[C]C-C+F[C]C-C]F[C]C-C+F[C]C-C-F[C]C-C+F[C]C-C][F[C]C-C[F+F]F+F-F+F[F[C]C-C+F[C]C-C]F[C]C-C+F[C]C-C-F[C]C-C+F[C]C-C][F[C]C-C[F+F]F+F-F+F[F[C]C-C+F[C]C-C]F[C]C-C+F[C]C-C-F[C]C-C+F[C]C-C][F[C]C-C[F+F]F+F-F+F[F[C]C-C+F[C]C-C]F[C]C-C+F[C]C-C-F[C]C-C+F[C]C-C][F[C]C-C[F+F]F+F-F+F[F[C]C-C+F[C]C-C]F[C]C-C+F[C]C-C-F[C]C-C+F[C]C-C][F[C]C-C[F+F]F+F-F+F[F[C]C-C+F[C]C-C]F[C]C-C+F[C]C-C-F[C]C-C+F[C]C-C][F[C]C-C[F+F]F+F-F+F[F[C]C-C+F[C]C-C]F[C]C-C+F[C]C-C-F[C]C-C+F[C]C-C][F[C]C-C[F+F]F+F-F+F[F[C]C-C+F[C]C-C]F[C]C-C+F[C]C-C-F[C]C-C+F[C]C-C][F[C]C-C[F+F]F+F-F+F[F[C]C-C+F[C]C-C]F[C]C-C+F[C]C-C-F[C]C-C+F[C]C-C][F[C]C-C[F+F]F+F-F+F[F[C]C-C+F[C]C-C]F[C]C-C+F[C]C-C-F[C]C-C+F[C]C-C][F[C]C-C[F+F]F+F-F+F[F[C]C-C+F[C]C-C]F[C]C-C+F[C]C-C-F[C]C-C+F[C]C-C][F[C]C-C[F+F]F+F-F+F[F[C]C-C+F[C]C-C]F[C]C-C+F[C]C-C-F[C]C-C+F[C]C-C][F[C]C-C[F+F]F+F-F+F[F[C]C-C+F[C]C-C]F[C]C-C+F[C]C-C-F[C]C-C+F[C]C-C][F[C]C-C[F+F]F+F-F+F[F[C]C-C+F[C]C-C]F[C]C-C+F[C]C-C-F[C]C-C+F[C]C-C]
+Finished lsystem...
+Building mesh...
+Polygons before cleanup: 7020
+Polygons after cleanup: 7020
+Finished.
+Polygons before cleanup: 7020
+Polygons after cleanup: 7020
+Building model...
+   mesh: 0x7f93a30301a0
+Loading zone sceneobj list file: zones/woods/sceneobj_list.xml
+   Loading sceneobj file: zones/woods/sceneobj/lsystem_tree1.xml
+   Loading sceneobj file: zones/woods/sceneobj/lsystem_tree6.xml
+   Loading sceneobj file: zones/woods/sceneobj/lsystem_tree7.xml
+   Loading sceneobj file: zones/woods/sceneobj/lsystem_tree8.xml
+   Loading sceneobj file: zones/woods/sceneobj/lsystem_tree9.xml
+Loading particle effects list file: zones/woods/particle_effects_list.xml
+   Loading particle effects file: zones/woods/particle_effects/snow_1.xml
+Loading particle system from factory: particle_systems/snow.xml
+   Loading particle effects file: zones/woods/particle_effects/snow_2.xml
+modelList size from Zone: 1
+Loading zone file from world: 
+   zones/woods/woods.xml
+    with name: woods
+Loading hud model list file: hud/model_list.xml
+   Loading model file: hud/models/directions.xml
+Mesh FN: ui_assets/testUI.fbx
+Model name: directions
+Loading mesh: ui_assets/testUI.fbx
+   Mesh not found: ui_assets/testUI.fbx
+Loading fbx file: ui_assets/testUI.fbx
+   Storing mesh.... 
+UV Count: 1
+Normal Count: 1
+Material Count: 1
+All Same!
+UV Names: map1
+Storing fbx mesh: ui_assets/testUI.fbx  at address: 0x7f93a30700f0
+Loading image: /home/jlcox/workspace/frost/ui_assets/testUI.fbm/FrostMenu.tga
+   Load complete.
+   Finished loading fbx file.
+Building model...
+   mesh: 0x7f93a30700f0
+Loading hud sceneobj list file: hud/sceneobj_list.xml
+   Loading sceneobj file: hud/sceneobj/directions.xml
+Mesh FN: ui_assets/testUI.fbx
+Model name: directions
+Loading mesh: ui_assets/testUI.fbx
+   Mesh found: ui_assets/testUI.fbx
+Building model...
+   mesh: 0x7f93a30700f0
+fn: player/player_mob.xml
+Mesh FN: assets/owl.fbx
+Model name: player
+Loading mesh: assets/owl.fbx
+   Mesh not found: assets/owl.fbx
+Loading fbx file: assets/owl.fbx
+   Storing mesh.... 
+UV Count: 1
+Normal Count: 1
+Material Count: 1
+All Same!
+UV Names: UVSet0
+Storing fbx mesh: assets/owl.fbx  at address: 0x7f93a30d7360
+Loading image: /home/jlcox/workspace/frost/assets/owl.fbm/Owl_Diffuse.tga
+   Load complete.
+   Finished loading fbx file.
+Building model...
+   mesh: 0x7f93a30d7360
+Running client.... 
+vel: -1.72665
+-4.2854
+-1.91155
+vel: -1.72008 -4.2854 -0.166603
+  post vel: -1.72008 -4.2854 -0.166603
+vel: -1.69395 -4.2854 -0.0289303
+  post vel: -1.69395 -4.2854 -0.0289303
+vel: -1.63623 -4.2854 -0.0074877
+  post vel: -1.63623 -4.2854 -0.0074877
+vel: -1.53755 -4.2854 -0.00256094
+  post vel: -1.53755 -4.2854 -0.00256094
+vel: -1.39349 -4.2854 -0.0010823
+  post vel: -1.39349 -4.2854 -0.0010823
+vel: -1.2068 -4.2854 -0.000541151
+  post vel: -1.2068 -4.2854 -0.000541151
+vel: -0.988553 -4.2854 -0.000310391
+  post vel: -0.988553 -4.2854 -0.000310391
+vel: -0.757275 -4.2854 -0.000199516
+  post vel: -0.757275 -4.2854 -0.000199516
+vel: -0.535475 -4.2854 -0.000141079
+  post vel: -0.535475 -4.2854 -0.000141079
+vel: -0.344196 -4.2854 -0.000108073
+  post vel: -0.344196 -4.2854 -0.000108073
+vel: -0.197423 -4.2854 -8.8528e-05
+  post vel: -0.197423 -4.2854 -8.8528e-05
+vel: -0.0987115 -4.2854 -7.66675e-05
+  post vel: -0.0987115 -4.2854 -7.66675e-05
+vel: -0.0417173 -4.2854 -6.94844e-05
+  post vel: -0.0417173 -4.2854 -6.94844e-05
+vel: -0.0142681 -4.2854 -6.52939e-05
+  post vel: -0.0142681 -4.2854 -6.52939e-05
+vel: -0.00369287 -4.2854 -6.30691e-05
+  post vel: -0.00369287 -4.2854 -6.30691e-05
+vel: -0.00064126 -4.2854 -6.2111e-05
+  post vel: -0.00064126 -4.2854 -6.2111e-05
+vel: -5.58895e-05 -4.2854 -6.18746e-05
+  post vel: -5.58895e-05 -4.2854 -6.18746e-05
+vel: -3.42224e-21 -4.2854 -6.18746e-05
+  post vel: -3.42224e-21 -4.2854 -6.18746e-05
+vel: 2.98268e-22 -4.2854 -6.16391e-05
+  post vel: 2.98268e-22 -4.2854 -6.16391e-05
+vel: -5.17937e-23 -4.2854 -6.07027e-05
+  post vel: -5.17937e-23 -4.2854 -6.07027e-05
+vel: 1.34052e-23 -4.2854 -5.86343e-05
+  post vel: 1.34052e-23 -4.2854 -5.86343e-05
+vel: -4.58485e-24 -4.2854 -5.50982e-05
+  post vel: -4.58485e-24 -4.2854 -5.50982e-05
+vel: 1.93764e-24 -4.2854 -4.9936e-05
+  post vel: 1.93764e-24 -4.2854 -4.9936e-05
+vel: -9.68821e-25 -4.2854 -4.32458e-05
+  post vel: -9.68821e-25 -4.2854 -4.32458e-05
+vel: 5.55693e-25 -4.2854 -3.54249e-05
+  post vel: 5.55693e-25 -4.2854 -3.54249e-05
+vel: -3.57192e-25 -4.2854 -2.7137e-05
+  post vel: -3.57192e-25 -4.2854 -2.7137e-05
+vel: 2.52573e-25 -4.2854 -1.91888e-05
+  post vel: 2.52573e-25 -4.2854 -1.91888e-05
+vel: -1.93482e-25 -4.2854 -1.23343e-05
+  post vel: -1.93482e-25 -4.2854 -1.23343e-05
+vel: 1.58491e-25 -4.2854 -7.07467e-06
+  post vel: 1.58491e-25 -4.2854 -7.07467e-06
+vel: -1.37258e-25 -4.2854 -3.53734e-06
+  post vel: -1.37258e-25 -4.2854 -3.53734e-06
+vel: 1.24398e-25 -4.2854 -1.49494e-06
+  post vel: 1.24398e-25 -4.2854 -1.49494e-06
+vel: -1.16896e-25 -4.2854 -5.11301e-07
+  post vel: -1.16896e-25 -4.2854 -5.11301e-07
+vel: 1.12912e-25 -4.2854 -1.32334e-07
+  post vel: 1.12912e-25 -4.2854 -1.32334e-07
+vel: -1.11197e-25 -4.2854 -2.29796e-08
+  post vel: -1.11197e-25 -4.2854 -2.29796e-08
+vel: 1.10774e-25 -4.2854 -2.00281e-09
+  post vel: 1.10774e-25 -4.2854 -2.00281e-09
+vel: -1.10774e-25 -4.2854 -2.45273e-25
+  post vel: -1.10774e-25 -4.2854 -2.45273e-25
+vel: 1.10352e-25 -4.2854 2.13769e-26
+  post vel: 1.10352e-25 -4.2854 2.13769e-26
+vel: -1.08676e-25 -4.2854 -3.71207e-27
+  post vel: -1.08676e-25 -4.2854 -3.71207e-27
+vel: 1.04973e-25 -4.2854 9.60754e-28
+  post vel: 1.04973e-25 -4.2854 9.60754e-28
+vel: -9.86422e-26 -4.2854 -3.28597e-28
+  post vel: -9.86422e-26 -4.2854 -3.28597e-28
+vel: 8.94002e-26 -4.2854 1.38871e-28
+  post vel: 8.94002e-26 -4.2854 1.38871e-28
+vel: -7.74228e-26 -4.2854 -6.94356e-29
+  post vel: -7.74228e-26 -4.2854 -6.94356e-29
+vel: 6.34211e-26 -4.2854 3.98266e-29
+  post vel: 6.34211e-26 -4.2854 3.98266e-29
+vel: -4.85833e-26 -4.2854 -2.56e-29
+  post vel: -4.85833e-26 -4.2854 -2.56e-29
+vel: 3.43536e-26 -4.2854 1.8102e-29
+  post vel: 3.43536e-26 -4.2854 1.8102e-29
+vel: -2.20821e-26 -4.2854 -1.38669e-29
+  post vel: -2.20821e-26 -4.2854 -1.38669e-29
+vel: 1.26658e-26 -4.2854 1.13591e-29
+  post vel: 1.26658e-26 -4.2854 1.13591e-29
+vel: -6.33288e-27 -4.2854 -9.83728e-30
+  post vel: -6.33288e-27 -4.2854 -9.83728e-30
+vel: 2.67639e-27 -4.2854 8.9156e-30
+  post vel: 2.67639e-27 -4.2854 8.9156e-30
+vel: -9.15379e-28 -4.2854 -8.37792e-30
+  post vel: -9.15379e-28 -4.2854 -8.37792e-30
+vel: 2.36918e-28 -4.2854 8.09245e-30
+  post vel: 2.36918e-28 -4.2854 8.09245e-30
+vel: -4.11403e-29 -4.2854 -7.96951e-30
+  post vel: -4.11403e-29 -4.2854 -7.96951e-30
+vel: 3.58561e-30 -4.2854 7.93918e-30
+  post vel: 3.58561e-30 -4.2854 7.93918e-30
+vel: -0 -4.2854 -7.93918e-30
+  post vel: -0 -4.2854 -7.93918e-30
+vel: 0 -4.2854 7.90897e-30
+  post vel: 0 -4.2854 7.90897e-30
+vel: 0 -4.2854 -7.78882e-30
+  post vel: 0 -4.2854 -7.78882e-30
+vel: 0 -4.2854 7.52342e-30
+  post vel: 0 -4.2854 7.52342e-30
+vel: 0 -4.2854 -7.0697e-30
+  post vel: 0 -4.2854 -7.0697e-30
+vel: 0 -4.2854 6.40733e-30
+  post vel: 0 -4.2854 6.40733e-30
+vel: 0 -4.2854 -5.54891e-30
+  post vel: 0 -4.2854 -5.54891e-30
+vel: 0 -4.2854 4.5454e-30
+  post vel: 0 -4.2854 4.5454e-30
+vel: 0 -4.2854 -3.48198e-30
+  post vel: 0 -4.2854 -3.48198e-30
+vel: 0 -4.2854 2.46213e-30
+  post vel: 0 -4.2854 2.46213e-30
+vel: 0 -4.2854 -1.58263e-30
+  post vel: 0 -4.2854 -1.58263e-30
+vel: 0 -4.2854 9.07757e-31
+  post vel: 0 -4.2854 9.07757e-31
+vel: 0 -4.2854 -4.53879e-31
+  post vel: 0 -4.2854 -4.53879e-31
+vel: 0 -4.2854 1.91817e-31
+  post vel: 0 -4.2854 1.91817e-31
+vel: 0 -4.2854 -6.56054e-32
+  post vel: 0 -4.2854 -6.56054e-32
+vel: 0 -4.2854 1.69799e-32
+  post vel: 0 -4.2854 1.69799e-32
+vel: 0 -4.2854 -2.94853e-33
+  post vel: 0 -4.2854 -2.94853e-33
+vel: 0 -4.2854 2.56982e-34
+  post vel: 0 -4.2854 2.56982e-34
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: 0 -4.2854 0
+  post vel: 0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 0
+  post vel: -0 -4.2854 0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: -0 -4.2854 -0
+  post vel: -0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+vel: 0 -4.2854 -0
+  post vel: 0 -4.2854 -0
+Good bye FBXParser!!!

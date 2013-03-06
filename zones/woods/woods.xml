@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xml-data>
+  <zone_info>
+    <zone_name>woods</zone_name>
+    <terrain>zones/woods/sceneobj/terrain.xml</terrain>
+    <sky>zones/woods/sceneobj/sky.xml</sky>
+    <model_list>zones/woods/model_list.xml</model_list>
+    <sceneobj_list>zones/woods/sceneobj_list.xml</sceneobj_list>
+    <mob_list>zones/woods/mob_list.xml</mob_list>
+    <particle_effects_list>zones/woods/particle_effects_list.xml</particle_effects_list>
+  </zone_info>
+</xml-data>

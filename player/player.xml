@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xml-data>
+  <player_file>
+    <wob_file>player/player_wob.xml</wob_file>
+    <current_health>100</current_health>
+    <max_health>100</max_health>
+    <attack_speed>0.1</attack_speed>
+  </player_file>
+</xml-data>
