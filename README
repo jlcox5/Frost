@@ -16,6 +16,11 @@ on the framework:
   - An L-system that is used to dynamically generate the tree mesh
   - An XML based file system that is designed to allow easy extenion of the
     game world
+  - A skeletal based animation system implemented with joints and vertex
+    weights as defined in the collada file format.  Please note that this is not 
+    represented in the current version of the game world, though the code has 
+    been verified to work with individual collada files. Integration is currently
+    being worked on.
   - Collision detection
   - Shooting
   - Monster AI (aggressive or not).
