@@ -66,6 +66,7 @@ void SceneOBJ::draw() const{
   glPushMatrix();
   orient(); 
   model->getMesh().drawDisplayList();
+  //model->getMesh().drawMesh();
   glDisable(GL_TEXTURE_2D);
   glPopMatrix();
 }

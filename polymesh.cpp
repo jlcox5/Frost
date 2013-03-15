@@ -16,21 +16,7 @@ using std::cout; using std::endl;
 
 PolyMesh::PolyMesh(std::vector<Vector3f*> & p, std::vector<std::vector<int> *> & pi, float r):
                    points(p),
-                   polyIndex(pi),
-                   jointIndex(0),
-                   jointWeight(0){
-  buildBoundSphere(r);
-  buildBoundBox();
-  cout << "Bounding volumes complete" << endl;
-  saveDisplayList();
-}
-
-PolyMesh::PolyMesh(std::vector<Vector3f*> & p, std::vector<std::vector<int> *> & pi, 
-                   std::vector<int> * ji, std::vector<float> * jw, float r):
-                   points(p),
-                   polyIndex(pi),
-                   jointIndex(ji),
-                   jointWeight(jw){
+                   polyIndex(pi){
 
   buildBoundSphere(r);
   buildBoundBox();

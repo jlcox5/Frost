@@ -349,6 +349,10 @@ PolyMesh * LSystem::buildMesh() const{
   float phi, theta, ratio0, ratio1;
   int N;
 
+  uX << 0,0,0;
+  uY << 0,0,0;
+  uZ << 0,0,0;
+
   float modLevels = static_cast<float>(maxLevel);
 
   r = 0.05;

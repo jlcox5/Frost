@@ -36,7 +36,7 @@ class Hud{
     bool displayHud() const{ return display; }
     void toggleDisplay();
 
-    void displayHealthBar();
+    void displayHealthBar() const;
 
   private:
     std::vector<string> modelList;

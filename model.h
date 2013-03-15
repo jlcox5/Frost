@@ -12,7 +12,6 @@
 #include "mesh.h"
 #include "texture.h"
 #include "animate.h"
-#include "skeleton.h"
 
 class Model{
 
@@ -31,7 +30,6 @@ class Model{
   private:
     Mesh * mesh;
     Texture * texture;
-    Skeleton * skel;
     Animate * animate;
 
     Model(Model&);

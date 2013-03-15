@@ -79,6 +79,7 @@ void Hud::loadSceneObj(string const & fn){
   for(_sl = _sld.first; _sl != _sld.second; _sl++){
     cout << "   Loading sceneobj file: " << (*_sl).second << endl;
     so = new SceneOBJ((*_sl).second);
+    so->saveDisplayList();
     sceneObjList.push_back(so);
   }
   delete handle;
@@ -94,7 +95,7 @@ void Hud::toggleDisplay(){
   cout << "display: " << display << endl;
 }
 
-void Hud::displayHealthBar(){
+void Hud::displayHealthBar() const{
   Client * client = Client::getInstance();
   double curHealth = client->getPlayer().getCurHealth();
   double maxHealth = client->getPlayer().getMaxHealth();

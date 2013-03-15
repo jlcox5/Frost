@@ -2,7 +2,7 @@
 <xml-data>
   <model_file>
     <model_name>goblin</model_name>
-    <mesh_file>assets/goblin.fbx</mesh_file>
+    <mesh_file>assets/dog.fbx</mesh_file>
     <texture_file></texture_file>
     <animation_file></animation_file>
   </model_file>

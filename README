@@ -1,30 +1,30 @@
 Jonathan Cox
 CPSC 870
-Assignement 3
+Final
 
 This project aims to set the foundation for a robust and fully functional
-3D MMO game engine.  In this assignment, the following has been added to the
-intial framework:
+3D game engine.  In this assignment, the following is currently implemented
+on the framework:
 
-  - A world object (WOB) class has been created with two children classes,
-    Scene Object (SceneObj) and Mobile object (MOB).  A SceneObj object is a
-    static model, like the trees that will not be interacted with and will
-    have limited movement.  A MOB can be anything the player interacts with.
-  - The zone and world classes have been implemented.  These use an extensive
-    set of xml files to determine which WOB's to load and where to put them.
-    Currently, only one zone is defined, however it is easily extensible.  The
-    folder that houses the xml files is "zones".
-  - A player object has been created.  Right now it only keeps track of the
-    model to load, max and current health, and the initial position.  More will
-    be added later.
-  - A very VERY simple menu was created.  The HUD system is also easily extensible
-    and is based on the xml files listed in the hud directory.  Currently, only
-    one menu exists, and is shown and hidden by hitting F1.
-  - A sound system was implemented.  It currently only plays background music,
-    will be extended and incorporated into the zone system so that each zone
-    will determine which sounds will load and be played.
-  - The framework for a particle system is in place, but unfortunately I ran out
-    of time before I could finish implementing it.  I will add this soon!
+  - A singleton based client
+  - A particle system used to generate snow
+  - The factory method has been used to manage mesh and texture information,
+    as well duplicate instances of the particle systems for efficency
+  - Inheritance and polymorphism was used to differentiate between static,
+    dynamic, and player objects.  It has also been designed to be easily 
+    extensible.
+  - An L-system that is used to dynamically generate the tree mesh
+  - An XML based file system that is designed to allow easy extenion of the
+    game world
+  - Collision detection
+  - Shooting
+  - Monster AI (aggressive or not).
+  - A HUD that idicates player health (this part needs a lot of love...)
+
+It should be noted that I am not the original author of the L-system class,
+though I did extend it to go from a 2D system to a 3D system.  I also did
+not write the original parseXML code, though it was also heavily modified to 
+suit the needs of this project.
 
 The directory structure is as follows:
    assets: contains fbx files
@@ -40,12 +40,10 @@ The directory structure is as follows:
      used, etc
    hud: holds the xml files that define the hud system
 
-The class diagram is shown in ClassDiagram.dia.  The new classes have been added
-but not fully fleshed out.  I will do this very very soon, and apologize for not
-having it included.  Dr. Malloy told me to not worry about running Valgrind reports,
-so that file has not been included.
+The class diagram is shown in ClassDiagram.dia.  The new classes have been added.  A
+slightly nicer to read diagram was included in the web page.
 
-To run the program, use: ./bin/main
+To run the program, use: ./frost
 
 Keys: 
   Esc: Quit the application
@@ -63,12 +61,6 @@ Keys:
 
    Also note that this program requires that the FBX SDK library be installed
    as per the email sent previously.
-
-The camera keys still have a tendency to stick, though not nearly as bad as before.
-For some reason, the texture associated with the menu did not export properly in the
-fbx file.  I tried this several times without getting a correctly result.  I will try
-to figure out why this is the case.  Thank you for taking the time to read all of this!
-
 
 
 

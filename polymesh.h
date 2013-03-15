@@ -17,7 +17,6 @@
 // Custom Libraries
 #include "mesh.h"
 #include "texture.h"
-#include "skeleton.h"
 
 using namespace Eigen;
 
@@ -25,8 +24,6 @@ class PolyMesh: public Mesh{
 
   public:
     PolyMesh(std::vector<Vector3f*> &, std::vector<std::vector<int> *> &, float);
-    PolyMesh(std::vector<Vector3f*> &, std::vector<std::vector<int> *> &, 
-             std::vector<int> *, std::vector<float> *, float);
     PolyMesh(PolyMesh const &);
     ~PolyMesh();
     PolyMesh& operator=(PolyMesh const &);
@@ -41,10 +38,7 @@ class PolyMesh: public Mesh{
 
   private:
     std::vector<Vector3f*> & points;
-    std::vector<std::vector<int> *> & polyIndex;
-
-    std::vector<int> * jointIndex;
-    std::vector<float> * jointWeight;
+    std::vector<std::vector<int> *> & polyIndex; 
 
     PolyMesh();
 };
