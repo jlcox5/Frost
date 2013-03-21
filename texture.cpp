@@ -13,13 +13,16 @@
 
 using std::cout; using std::endl;
 
-Texture::Texture(){
+Texture::Texture(): loaded(false){
 }
 
-Texture::Texture(KFbxFileTexture const & t): text(&t), id(0){
+Texture::Texture(KFbxFileTexture const & t): text(&t), id(0), loaded(true){
 }
 
-Texture::Texture(KFbxFileTexture const & t, unsigned int i): text(&t), id(i){
+Texture::Texture(KFbxFileTexture const & t, unsigned int i): text(&t), id(i), loaded(true){
+}
+
+Texture::Texture(unsigned int i): text(NULL), id(i), loaded(true){
 }
 
 Texture::~Texture(){

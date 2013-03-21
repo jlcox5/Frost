@@ -51,6 +51,7 @@ void Renderer::renderScene() const{
   }
   glColor4f(0.5, 0.5, 0.5, 1.0);
   for(_ml = ml.begin(); _ml != ml.end(); _ml++){
+    (*_ml)->animate();
     (*_ml)->draw();
   }
   for(_pl = pl.begin(); _pl != pl.end(); _pl++){

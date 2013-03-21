@@ -16,18 +16,25 @@
 
 using std::cout; using std::endl;
 
-Model::Model(): mesh(), texture(), animate(){
+Model::Model(): mesh(), texture(), animate(), isAnimated(false){}
 
-}
-
-Model::Model(Mesh& m): mesh(&m), texture(), animate(new Animate()){
+Model::Model(Mesh& m): mesh(&m), texture(), animate(), skel(){
   cout << "Building model..." << endl;
   cout << "   mesh: " << mesh << endl;
 }
 
-Model::Model(Mesh& m, Texture& t): mesh(&m), texture(&t), animate(){
+Model::Model(Mesh& m, Texture& t): mesh(&m), texture(&t), animate(), skel(), isAnimated(false){
   cout << "Building model..." << endl; 
-  mesh->assignText(t);
+}
+
+Model::Model(Mesh& m, Texture& t, Animate& a): mesh(&m), texture(&t), animate(&a), skel(),
+             isAnimated(true){
+  cout << "Building model..." << endl; 
+}
+
+Model::Model(Mesh& m, Texture& t, Animate& a, Skeleton& s): 
+             mesh(&m), texture(&t), animate(&a), skel(&s), isAnimated(true){
+  cout << "Building model..." << endl; 
 }
 
 // Note that shallow copies are done on purpose as actual data is handles by Texture Mangager,
@@ -48,6 +55,29 @@ Model::~Model(){
 }
 
 void Model::drawModel() const{
-  //animate->runAnimation();
+  if(texture != NULL){
+    if(texture->isLoaded()){
+      glEnable(GL_TEXTURE_2D);
+      glBindTexture(GL_TEXTURE_2D, texture->getID());
+    }
+  }
   mesh->drawMesh();
+  if(texture != NULL){
+    if(texture->isLoaded()){
+      glDisable(GL_TEXTURE_2D);
+    }
+  }
+}
+
+void Model::animateModel(){
+  if(isAnimated){
+    // Find keyframe joint manipulations
+    animate->updateJoints();
+
+    // Apply keyframe joint manipulations to inverse bind matricies
+    skel->updateJointsAnim(animate->getPoses());
+
+    // Apply to each vertex
+    mesh->animateMesh(skel);
+  }
 }

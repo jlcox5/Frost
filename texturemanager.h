@@ -11,12 +11,15 @@
 // Standard Libraries
 #include <vector>
 #include <map>
+#include <string>
 
 // FBX Library
 #include <fbxsdk.h>
 
 // Custom Libraries
 #include "texture.h"
+
+using std::string;
 
 class TextureManager{
 
@@ -34,6 +37,7 @@ class TextureManager{
     void loadTextureFile(KFbxFileTexture const &, unsigned int *);
 
     void setTexture(KFbxNode const &, int); 
+    void setTexture(unsigned int);
     
 
   private:

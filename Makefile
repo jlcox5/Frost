@@ -11,9 +11,9 @@ EXAMPLE     = frost
 BINDIR      = $(PWD)
 OBJDIR      = $(PWD)
 ASSDIR      = $(PWD)/assets
-LIBDIR      = /usr/lib/gcc4/x64
+LIBDIR      = /usr/lib/gcc4/x86
 LIBFBXVERSION = 2012.1
-INCDIR      = /usr/include -I/usr/include/kbaselib
+INCDIR      = /usr/include -I/usr/include/kbaselib -I/usr/local/include/collada-dom -I/usr/local/include/collada-dom/1.4
 
 TARGET      = $(BINDIR)/$(EXAMPLE)
 OBJS        =  \
@@ -34,6 +34,7 @@ OBJS        =  \
 	targa.o \
 	texturemanager.o \
 	parseXML.o \
+   collada.o \
 	handleChars.o \
 	animate.o \
 	joint.o \
@@ -73,6 +74,7 @@ OBJSFINAL   =  \
 	$(OBJDIR)/targa.o \
 	$(OBJDIR)/texturemanager.o \
 	$(OBJDIR)/parseXML.o \
+   $(OBJDIR)/collada.o \
 	$(OBJDIR)/handleChars.o \
 	$(OBJDIR)/animate.o \
 	$(OBJDIR)/joint.o \
@@ -94,20 +96,20 @@ OBJSFINAL   =  \
 	$(OBJDIR)/hud.o \
 	$(OBJDIR)/main.o
 
-LIBS        = -lSDL_ttf -lSDL_image -lSDL_gfx -lSDL_mixer -lGL -lGLU -lm -lexpat -lrt -luuid -lstdc++ -lpthread -ldl -lfbxsdk-$(LIBFBXVERSION)$(STATIC)$(SUFFIX)
+LIBS        = -lxml2 -lpcre -lpcrecpp -lboost_filesystem -lcollada14dom -lSDL_ttf -lSDL_image -lSDL_gfx -lSDL_mixer -lGL -lGLU -lm -lexpat -lrt -luuid -lstdc++ -lpthread -ldl -lfbxsdk-$(LIBFBXVERSION)$(STATIC)$(SUFFIX)
 
 CC          = g++
 LD          = g++ 
 RM          = /bin/rm -f
 
-CXXFLAGS    = -g -Wall -m64 -O3 `sdl-config --cflags` -DFBXSDK_SHARED
-LDFLAGS     = -m64 `sdl-config --libs` $(GCC_LINK_FLAGS)
+CXXFLAGS    = -g -Wall -m32 -O3 `sdl-config --cflags` `Magick++-config --ldflags --libs` -DFBXSDK_SHARED
+LDFLAGS     = -m32 `sdl-config --libs` `Magick++-config --ldflags --libs` $(GCC_LINK_FLAGS)
 
 .SUFFIXES: .cpp
 
 all: $(TARGET)
 
-.cxx.o:
+.cpp.o:
 	$(CC) $(CXXFLAGS) -I$(INCDIR) -c $< -o $*.o
 
 

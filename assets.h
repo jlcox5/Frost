@@ -44,9 +44,10 @@ class Assets{
     MeshFactory& getMeshFactory(){ return meshFact; }
     ModelFactory& getModelFactory(){ return modelFact; }
     ParticleFactory& getParticleFactory(){ return particleFact; }
+    TextureManager& getTextureManager(){ return textMan; }
     
-
     void setTexture(KFbxNode const &, int);
+    void setTexture(unsigned int);
     void rebuildTree();
     void rebuildTreeModel();
 

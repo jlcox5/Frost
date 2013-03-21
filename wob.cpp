@@ -74,6 +74,10 @@ void WOB::draw() const{
   glPopMatrix();
 }
 
+void WOB::animate(){
+  model->animateModel();
+}
+
 void WOB::orient() const{
   glTranslatef(translate[0], translate[1],translate[2]);
   glRotatef(rotate[3], rotate[0], rotate[1], rotate[2]);

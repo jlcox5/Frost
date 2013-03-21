@@ -26,6 +26,7 @@
 #include "texture.h"
 #include "animate.h"
 #include "joint.h"
+#include "skeleton.h"
 
 using namespace Eigen;
 using std::string;

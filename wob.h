@@ -28,6 +28,7 @@ class WOB{
     virtual ~WOB();
 
     virtual void draw() const;
+    virtual void animate();
     void setRotation(Vector4f const &);
     void setTranslation(Vector3f const &);
     void setScale(Vector3f const &);

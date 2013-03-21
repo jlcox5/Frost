@@ -2,6 +2,7 @@
 <xml-data>
   <model_file>
     <model_name>sky</model_name>
+    <composite_file>NOFILE</composite_file>
     <mesh_file>assets/sky_night_clear.fbx</mesh_file>
     <texture_file></texture_file>
     <animation_file></animation_file>

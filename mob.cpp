@@ -291,7 +291,7 @@ void MOB::update(float dT){
     float closestDist = 10.0;
     Vector3f objTrans;
     // Turning
-    if(fabs(curDeg) <= fabs(degList[posIt])){
+    if(degList.size() > 0 && fabs(curDeg) <= fabs(degList[posIt])){
 
       if(curDeg < degList[posIt]){
         curDeg = fmod(curDeg+ang, 360.0);
@@ -395,7 +395,7 @@ void MOB::update(float dT){
         }
       }
 
-      if(curDist >= distList[posIt]){
+      if(distList.size() > 0 && curDist >= distList[posIt]){
         posIt = (posIt+1)%degList.size();
         curDist = 0;
         curDeg = 0;

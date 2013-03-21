@@ -47,6 +47,10 @@ void Assets::setTexture(KFbxNode const & n, int i){
   textMan.setTexture(n, i);
 }
 
+void Assets::setTexture(unsigned int i){
+  textMan.setTexture(i);
+}
+
 void Assets::rebuildTree(){
   if(meshFact.eraseMesh("lsystem/test.xml") == true){
     meshFact.getMesh("lsystem/test.xml");

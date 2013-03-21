@@ -10,6 +10,7 @@
 #include "meshfactory.h"
 #include "lsystem.h"
 #include "fbxparser.h"
+#include "collada.h"
 
 MeshFactory::~MeshFactory(){
   map<string, Mesh*>::iterator _m;
@@ -60,6 +61,16 @@ Mesh * MeshFactory::getMesh(string const & fn){
       p = l->buildMesh();
       meshList[fn] = p;
       delete l;
+      return p;
+    }
+    // Handle collada files -> Only file type that I have animation support for
+    else if(ext.compare("dae") == 0){
+      PolyMesh * p;
+      Collada * col;
+      col = new Collada(fn);
+      p = col->buildPolyMesh();
+      meshList[fn] = p;
+      delete col;
       return p;
     }
     else{

@@ -454,6 +454,6 @@ PolyMesh * LSystem::buildMesh() const{
   }
   cout << "Polygons after cleanup: " << polyIndex->size() << endl;
 
-  return new PolyMesh(*points, *polyIndex, boundRad);
+  return new PolyMesh(points, polyIndex, boundRad);
    
 }

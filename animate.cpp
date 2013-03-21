@@ -71,7 +71,7 @@ Animate::~Animate(){
 // refactored.
 void Animate::updateJoints(){
   float t = Client::getInstance()->getClock().getPhysElapsed();
-  t = 0.0010;
+  t += 0.05;
   float w = 0;
   int timeInd1, timeInd2;
   bool wSet = false;
@@ -101,6 +101,7 @@ void Animate::updateJoints(){
         timeInd2 = i+1;
 
         wSet = true;
+        break;
       }
     } 
   }

@@ -19,6 +19,7 @@
 
 // Custom Libraries
 #include "texture.h"
+#include "skeleton.h"
 
 using Eigen::Vector3f; using Eigen::Vector4f;
 
@@ -36,6 +37,7 @@ class Mesh{
     virtual void buildBoundSphere(float) = 0;
     virtual void saveDisplayList() = 0;
     virtual void drawDisplayList() const = 0;
+    virtual void animateMesh(Skeleton *);
     void setRadius(float f){ radius = f; }
     float const getRadius() const{ return radius; }
 

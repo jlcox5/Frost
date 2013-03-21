@@ -9,6 +9,7 @@
 #include "client.h"
 #include "fbxparser.h"
 #include "modelfactory.h"
+#include "collada.h"
 
 ModelFactory::ModelFactory(): modelList(map<string, Model*>()){
 }
@@ -37,19 +38,51 @@ Model * ModelFactory::getModel(string const & fn){
 
   if(_m == modelList.end()){
     parser->parseXML(fn, handle);
-    meshFN = handle->getXmlStr("mesh_file");
+    
+    // Test for composite collada file
     modelName = handle->getXmlStr("model_name");
-    found = meshFN.find_last_of(".");
-    cout << "Mesh FN: " << meshFN << endl;
-    cout << "Model name: " << modelName << endl;
-    if(found == static_cast<unsigned int>(-1)){
-      cout << "Invalid filename given to model factory: " << meshFN << endl;
-      exit(-1);
+    cout << "In Model Factory..." << endl;
+    cout << "  Mesh FN: " << meshFN << endl;
+    cout << "  Model name: " << modelName << endl;
+    meshFN = handle->getXmlStr("composite_file");
+    if(meshFN == "NOFILE"){
+      meshFN = handle->getXmlStr("mesh_file");
+      found = meshFN.find_last_of(".");
+      cout << "In Model Factory..." << endl;
+      cout << "  Mesh FN: " << meshFN << endl;
+      cout << "  Model name: " << modelName << endl;
+      if(meshFN == "NOFILE"){
+        return NULL;
+      }
+      if(found == static_cast<unsigned int>(-1)){
+        cout << "  Invalid filename given to model factory: " << meshFN << endl;
+        exit(1);
+      }
+      Mesh * mesh;
+      mesh = Client::getInstance()->getAssets().getMeshFactory().getMesh(meshFN);
+      modelList[fn] = new Model(*mesh);
+      ret = modelList[fn];
     }
-    Mesh * mesh;
-    mesh = Client::getInstance()->getAssets().getMeshFactory().getMesh(meshFN);
-    modelList[fn] = new Model(*mesh);
-    ret = modelList[fn];
+    else{
+      // Collada only handles polymesh
+      cout << "Loading composite file: " << meshFN << endl;
+      PolyMesh * mesh;
+      Texture * text;
+      Animate * anim;
+      Skeleton * skel;
+      
+      Collada  col(meshFN);
+      mesh = col.buildPolyMesh();
+      text = col.buildTexture();
+      anim = col.buildAnimate();
+      skel = col.buildSkeleton();
+
+      Client::getInstance()->getAssets().getMeshFactory().pushMesh(meshFN, mesh);
+      Client::getInstance()->getAssets().getTextureManager().add(*text);
+
+      modelList[fn] = new Model(*mesh, *text, *anim, *skel);
+      ret = modelList[fn];
+    }
   }
   else{
     ret = _m->second;

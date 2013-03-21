@@ -10,13 +10,16 @@
 
 // Standard Libraries
 #include <iostream>
+#include <string>
 
 // Custom Libraries
 #include "texturemanager.h"
 #include "targa.h"
 #include "fbxparser.h"
+#include "collada.h"
 
 using std::cout; using std::endl;
+using std::string;
 
 TextureManager::TextureManager(): textList(), lastMat(NULL), lastTextObj(0), textObjForMat(){
 }
@@ -30,6 +33,7 @@ TextureManager::~TextureManager(){
 }
 
 void TextureManager::add(Texture& t){
+  cout << "Pushing texture-> " << t.getID() << endl;
   textList.push_back(&t);
 }
 
@@ -124,4 +128,9 @@ void TextureManager::setTexture(KFbxNode const & n, int i){
     glBindTexture(GL_TEXTURE_2D, lRec->GetValue());
     lastTextObj = lRec->GetValue();
   }
+}
+
+void TextureManager::setTexture(unsigned int i){
+  glBindTexture(GL_TEXTURE_2D, i);
+  lastTextObj = i;
 }
