@@ -28,6 +28,7 @@ Particle::Particle(Vector3f const & p,
                    deg(0),
                    setPosList(false){
 
+  posList.reserve(2000);
   effects = 1;  // Jitter - should be read from xml file
 }
 
@@ -38,6 +39,7 @@ Particle::Particle(Particle const & p){
 
   lifeSpan = p.getLifeSpan();
   age = 0;
+  posList.reserve(2000);
 }
 
 Particle::~Particle(){
@@ -57,6 +59,7 @@ Particle& Particle::operator=(Particle const & p){
 
 void Particle::update(float dT){
   // Check if we've filled the position list or are too old
+  dT *= 2;
   if( (posList.size() >= 2000 || age > lifeSpan) && setPosList == false){
     lifeSpan = age;
     setPosList = true;

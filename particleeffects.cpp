@@ -46,11 +46,11 @@ void ParticleEffects::orient() const{
 
 void ParticleEffects::draw() const{
   glEnable(GL_NORMALIZE);
-  glEnable(GL_TEXTURE_2D);
+  //glEnable(GL_TEXTURE_2D);
   glPushMatrix();
   orient();
   partSys->drawParticles();
-  glDisable(GL_TEXTURE_2D);
+  //glDisable(GL_TEXTURE_2D);
   glPopMatrix();
 }
 
