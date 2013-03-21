@@ -7,23 +7,22 @@ This project aims to set the foundation for a robust and fully functional
 on the framework:
 
   - A singleton based client
-  - A particle system used to generate snow
+  - A physically based particle system used to generate snow
   - The factory method has been used to manage mesh and texture information,
     as well duplicate instances of the particle systems for efficency
-  - Inheritance and polymorphism was used to differentiate between static,
+  - Inheritance and polymorphism are used to differentiate between static,
     dynamic, and player objects.  It has also been designed to be easily 
     extensible.
-  - An L-system that is used to dynamically generate the tree mesh
+  - An L-system that is used to dynamically generate tree meshes.
   - An XML based file system that is designed to allow easy extenion of the
     game world
   - A skeletal based animation system implemented with joints and vertex
-    weights as defined in the collada file format.  Please note that this is not 
-    represented in the current version of the game world, though the code has 
-    been verified to work with individual collada files. Integration is currently
-    being worked on.
+    weights as defined in the collada file format.  At this time, only the
+    flying bird has animation.  I am currently working to extend this to
+    other models.
   - Collision detection
   - Shooting
-  - Monster AI (aggressive or not).
+  - Monster AI (predefined paths with state based behavior).
   - A HUD that idicates player health (this part needs a lot of love...)
 
 It should be noted that I am not the original author of the L-system class,
@@ -45,8 +44,9 @@ The directory structure is as follows:
      used, etc
    hud: holds the xml files that define the hud system
 
-The class diagram is shown in ClassDiagram.dia.  The new classes have been added.  A
-slightly nicer to read diagram was included in the web page.
+The class diagram is shown in ClassDiagram.dia.  The animation classes have not
+yet been added.  A slightly nicer to read diagram was included as
+EasyClassDiagram.png.
 
 To run the program, use: ./frost
 
@@ -64,8 +64,8 @@ Keys:
    Line 59: CXXFLAGS = -m32 $(GCC_DEBUG_FLAGS) -DFBXSDK_SHARED
    Line 59: LDFLAGS = -m32 $(GCC_LINK_FLAGS)
 
-   Also note that this program requires that the FBX SDK library be installed
-   as per the email sent previously.
+   Also note that this program requires that the FBX SDK, Collada, and
+   ImageMagick libraries be compiled.
 
 
 
