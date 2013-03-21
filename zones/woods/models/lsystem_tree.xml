@@ -3,7 +3,7 @@
   <model_file>
     <model_name>lsystem_tree</model_name>
     <composite_file>NOFILE</composite_file>
-    <mesh_file>lsystem/test.xml</mesh_file>
+    <mesh_file>lsystem/tree_final.xml</mesh_file>
     <texture_file></texture_file>
     <animation_file></animation_file>
     <radius>3.0</radius>

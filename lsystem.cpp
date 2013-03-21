@@ -191,8 +191,8 @@ void LSystem::constructSystem(){
       modAng2 = -1.0*modAng2;
     }
 
-    // Add or subtract to rAng.  The constraints on ta and tb were determined through
-    // some experimentation to generate branches with "natural" looking angles.
+    // Add or subtract to rAng.  The constraints on modAng1 and modAng2 were determined
+    //through some experimentation to generate branches with "natural" looking angles.
     rAng += modAng2;
 
     cout << sentence[i];

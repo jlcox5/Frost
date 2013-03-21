@@ -33,6 +33,8 @@ class LSystem{
 
     void drawSkeleton() const;
     void printGrammar() const;
+
+    // Build mesh is called by the meshfactory class
     PolyMesh * buildMesh() const;
 
   private:
