@@ -28,7 +28,7 @@ Model::Model(Mesh& m, Texture& t): mesh(&m), texture(&t), animate(), skel(), isA
 }
 
 Model::Model(Mesh& m, Texture& t, Animate& a): mesh(&m), texture(&t), animate(&a), skel(),
-             isAnimated(true){
+             isAnimated(false){
   cout << "Building model..." << endl; 
 }
 
