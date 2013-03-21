@@ -678,7 +678,7 @@ void Collada::readVertexData(string const s){
     }
   }
 
-  polyIndex = new std::vector<std::vector<int >*>();
+  polyIndex = new std::list<std::vector<int >*>();
   if(PNT > 1){
     if(PNT != 4){
       normalIndex = new std::vector<std::vector<int >*>();

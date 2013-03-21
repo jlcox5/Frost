@@ -37,7 +37,7 @@ class Mesh{
     virtual void buildBoundSphere(float) = 0;
     virtual void saveDisplayList() = 0;
     virtual void drawDisplayList() const = 0;
-    virtual void animateMesh(Skeleton *);
+    virtual void animateMesh(Skeleton *){}
     void setRadius(float f){ radius = f; }
     float const getRadius() const{ return radius; }
 

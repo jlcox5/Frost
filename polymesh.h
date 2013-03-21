@@ -26,17 +26,17 @@ using namespace Eigen;
 class PolyMesh: public Mesh{
 
   public:
-    PolyMesh(std::vector<Vector3f*> *, std::vector<std::vector<int> *> *, float);
+    PolyMesh(std::vector<Vector3f*> *, std::list<std::vector<int> *> *, float);
 
-    PolyMesh(std::vector<Vector3f*> *, std::vector<std::vector<int> *> *, 
+    PolyMesh(std::vector<Vector3f*> *, std::list<std::vector<int> *> *, 
              std::vector<Vector3f*> *, std::vector<std::vector<int> *> *, float);
 
-    PolyMesh(std::vector<Vector3f*> *, std::vector<std::vector<int> *> *, 
+    PolyMesh(std::vector<Vector3f*> *, std::list<std::vector<int> *> *, 
              std::vector<Vector3f*> *, std::vector<std::vector<int> *> *, 
              std::vector<Vector2f*> *, std::vector<std::vector<int> *> *, float);
 
     // With Joint Information
-    PolyMesh(std::vector<Vector3f*> *, std::vector<std::vector<int> *> *, 
+    PolyMesh(std::vector<Vector3f*> *, std::list<std::vector<int> *> *, 
              std::vector<Vector3f*> *, std::vector<std::vector<int> *> *, 
              std::vector<Vector2f*> *, std::vector<std::vector<int> *> *,
              std::vector<std::vector<int> *> *,
@@ -45,7 +45,7 @@ class PolyMesh: public Mesh{
              std::vector<int> *, float);
 
     // With bind matricies
-    PolyMesh(std::vector<Vector3f*> *, std::vector<std::vector<int> *> *, 
+    PolyMesh(std::vector<Vector3f*> *, std::list<std::vector<int> *> *, 
              std::vector<Vector3f*> *, std::vector<std::vector<int> *> *, 
              std::vector<Vector2f*> *, std::vector<std::vector<int> *> *,
              std::vector<std::vector<int> *> *,
@@ -76,7 +76,7 @@ class PolyMesh: public Mesh{
   private:
     std::vector<Vector3f*> * points;
     std::vector<Vector3f*> * pointsBase;
-    std::vector<std::vector<int> *> * polyIndex;
+    std::list<std::vector<int> *> * polyIndex;
 
     std::vector<Vector3f*> * normals;
     std::vector<std::vector<int> *> * normalIndex;

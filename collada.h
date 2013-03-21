@@ -54,7 +54,7 @@ class Collada{
     std::vector<Vector3f*> * points;
     std::vector<Vector3f*> * normals;
     std::vector<Vector2f*> * texCoords;
-    std::vector<std::vector<int> *> * polyIndex;
+    std::list<std::vector<int> *> * polyIndex;
     std::vector<std::vector<int> *> * normalIndex;
     std::vector<std::vector<int> *> * texIndex;
     unsigned int textID;

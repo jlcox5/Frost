@@ -71,13 +71,15 @@ void Model::drawModel() const{
 
 void Model::animateModel(){
   if(isAnimated){
-    // Find keyframe joint manipulations
-    animate->updateJoints();
+    if(animate != NULL){
+      // Find keyframe joint manipulations
+      animate->updateJoints();
 
-    // Apply keyframe joint manipulations to inverse bind matricies
-    skel->updateJointsAnim(animate->getPoses());
+      // Apply keyframe joint manipulations to inverse bind matricies
+      skel->updateJointsAnim(animate->getPoses());
 
-    // Apply to each vertex
-    mesh->animateMesh(skel);
+      // Apply to each vertex
+      mesh->animateMesh(skel);
+    }
   }
 }

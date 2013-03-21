@@ -14,7 +14,7 @@
 
 using std::cout; using std::endl;
 
-PolyMesh::PolyMesh(std::vector<Vector3f*> * p, std::vector<std::vector<int> *> * pi, float r):
+PolyMesh::PolyMesh(std::vector<Vector3f*> * p, std::list<std::vector<int> *> * pi, float r):
                    points(),
                    pointsBase(p),
                    polyIndex(pi),
@@ -36,7 +36,7 @@ PolyMesh::PolyMesh(std::vector<Vector3f*> * p, std::vector<std::vector<int> *> *
   saveDisplayList();
 }
 
-PolyMesh::PolyMesh(std::vector<Vector3f*> * p, std::vector<std::vector<int> *> * pi, 
+PolyMesh::PolyMesh(std::vector<Vector3f*> * p, std::list<std::vector<int> *> * pi, 
                    std::vector<Vector3f*> * n, std::vector<std::vector<int> *> * ni, float r):
                    points(),
                    pointsBase(p),
@@ -59,7 +59,7 @@ PolyMesh::PolyMesh(std::vector<Vector3f*> * p, std::vector<std::vector<int> *> *
   saveDisplayList();
 }
 
-PolyMesh::PolyMesh(std::vector<Vector3f*> * p, std::vector<std::vector<int> *> * pi, 
+PolyMesh::PolyMesh(std::vector<Vector3f*> * p, std::list<std::vector<int> *> * pi, 
          std::vector<Vector3f*> * n, std::vector<std::vector<int> *> * ni, 
          std::vector<Vector2f*> * t, std::vector<std::vector<int> *> * ti, float r):
          points(),
@@ -83,7 +83,7 @@ PolyMesh::PolyMesh(std::vector<Vector3f*> * p, std::vector<std::vector<int> *> *
   saveDisplayList();
 }
 
-PolyMesh::PolyMesh(std::vector<Vector3f*> * p, std::vector<std::vector<int> *> * pi, 
+PolyMesh::PolyMesh(std::vector<Vector3f*> * p, std::list<std::vector<int> *> * pi, 
            std::vector<Vector3f*> * n, std::vector<std::vector<int> *> * ni, 
            std::vector<Vector2f*> * t, std::vector<std::vector<int> *> * ti,
            std::vector<std::vector<int> *> * ji,
@@ -111,7 +111,7 @@ PolyMesh::PolyMesh(std::vector<Vector3f*> * p, std::vector<std::vector<int> *> *
   saveDisplayList();
 }
 
-PolyMesh::PolyMesh(std::vector<Vector3f*> * p, std::vector<std::vector<int> *> * pi, 
+PolyMesh::PolyMesh(std::vector<Vector3f*> * p, std::list<std::vector<int> *> * pi, 
            std::vector<Vector3f*> * n, std::vector<std::vector<int> *> * ni, 
            std::vector<Vector2f*> * t, std::vector<std::vector<int> *> * ti,
            std::vector<std::vector<int> *> * ji,
@@ -159,7 +159,7 @@ PolyMesh::PolyMesh(std::vector<Vector3f*> * p, std::vector<std::vector<int> *> *
 }*/
 
 PolyMesh::~PolyMesh(){
-  std::vector<std::vector<int> *>::iterator _p;
+  std::list<std::vector<int> *>::iterator _p;
 
   for(_p = polyIndex->begin(); _p != polyIndex->end(); _p++){
     delete (*_p);
@@ -180,7 +180,7 @@ void PolyMesh::pointsBaseToPoints(){
 }
 
 void PolyMesh::drawMesh() const{
-  std::vector<std::vector<int> *>::iterator _v;
+  std::list<std::vector<int> *>::iterator _v;
   std::vector<std::vector<int> *>::iterator _vn;
   std::vector<std::vector<int> *>::iterator _vt;
   Vector3f * p;
@@ -226,7 +226,7 @@ void PolyMesh::drawMesh() const{
 }
 
 void PolyMesh::buildBoundBox(){
-  std::vector<std::vector<int> *>::iterator _v;
+  std::list<std::vector<int> *>::iterator _v;
   Vector3f * p;
   trc << 0, 0, 0;
   blc << 0, 0, 0;
@@ -261,7 +261,7 @@ void PolyMesh::buildBoundSphere(float r){
 
   // Assuming no predifined radius by mesh
   if(r == -1){
-    std::vector<std::vector<int> *>::iterator _v;
+    std::list<std::vector<int> *>::iterator _v;
     Vector3f * p;
     float testR = -1;
 
@@ -284,7 +284,7 @@ void PolyMesh::buildBoundSphere(float r){
 
 void PolyMesh::saveDisplayList(){
   index = glGenLists(1);
-  std::vector<std::vector<int> *>::iterator _v;
+  std::list<std::vector<int> *>::iterator _v;
   Vector3f * p;
 
   glNewList(index, GL_COMPILE);

@@ -40,6 +40,8 @@ class LSystem{
     HandleChars * handle;
 
     // Building LSystem
+    // These values are all defined in or are determined from the associated
+    // xml file
     Vector3f state;
     Vector3f start;
     Vector3f facing;
@@ -50,9 +52,6 @@ class LSystem{
     char startSymbol;
     float boundRad;
     std::multimap<char, string> grammar;
-    std::stack<Vector3f> stateStackPos;
-    std::stack<Vector3f> stateStackFacing;
-    std::stack<int> stateStackLevel;
     string sentence;
     
     // Results
@@ -62,6 +61,7 @@ class LSystem{
     // Helper functions
     void loadSystem(string const &);
     void buildSentence();
+    void applyGrammarOp(float, float, float);
     void constructSystem();
     void getGrammar(); 
 
@@ -69,9 +69,6 @@ class LSystem{
     LSystem();
     LSystem(LSystem&);
     LSystem& operator=(LSystem&);
-
-    // Trash
-    PolyMesh * testPolyMesh;
 };
 
 #endif

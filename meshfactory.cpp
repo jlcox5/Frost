@@ -74,7 +74,7 @@ Mesh * MeshFactory::getMesh(string const & fn){
       return p;
     }
     else{
-      cout << "Unrecognized file format.  Current recognized types are xml and fbx: " << endl;
+      cout << "Unrecognized file format.  Current recognized types are xml, collada, and fbx: " << endl;
       cout << "    " << fn << endl;
       exit(-1);
     }

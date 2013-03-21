@@ -36,35 +36,26 @@ LSystem::LSystem(string const & fn): handle(new HandleChars()),
                                      maxLevel(-1),
                                      startSymbol('F'),
                                      grammar(),
-                                     stateStackPos(),
-                                     stateStackFacing(),
                                      sentence(),
                                      coordList(){
 
-  cout << "Building lsystem..." << endl;
   loadSystem(fn);
-  cout << "   Load system complete." << endl;
   buildSentence();
-  cout << "   Sentence build complete." << endl;
   constructSystem();
-  cout << "Finished lsystem..." << endl;
-
-  cout << "Building mesh..." << endl;
-  testPolyMesh = buildMesh();
-  cout << "Finished." << endl;
-
 }
 
 LSystem::~LSystem(){
   delete handle;
 }
 
+// Parse through the xml file and load the starting values and the grammar 
+// for the L-System.
 void LSystem::loadSystem(string const & fn){
+  // ParseXML is a singleton
   ParseXML * parser = ParseXML::getInstance();
   parser->parseXML(fn, handle);
   string data;
 
-  cout << "     Setting xml values..." << endl;
   start(0) = handle->getXmlFloat("startX");
   start(1) = handle->getXmlFloat("startY");
   start(2) = handle->getXmlFloat("startZ");
@@ -76,22 +67,17 @@ void LSystem::loadSystem(string const & fn){
   levels = handle->getXmlInt("levels");
   boundRad = handle->getXmlFloat("boundRad");
 
-  cout << "     Finding start symbol values..." << endl;
-  /*std::map<string, string>::const_iterator ptr = handle->getXmlString("startSymbol");
-  if(ptr != xmlData.end()){
-    data = ptr->second;
-    startSymbol = data[0];
-  }*/
   startSymbol = '\0';
   startSymbol = handle->getXmlStr("startSymbol")[0];
   if(startSymbol == '\0'){
     throw string("Unable to locate start symbol for lsystem.");
   }
 
-  cout << "     Parsing grammar..." << endl;
   getGrammar();
 }
 
+
+// Build the sentence based on the grammar and the starting symbol defined in the xml file
 void LSystem::buildSentence(){
   int count = 0;
 
@@ -113,119 +99,114 @@ void LSystem::buildSentence(){
   }
 }
 
-void LSystem::constructSystem(){
-  state << start;
-
-  Vector3f v1, v2, v3;
+// Apply the random angle represented by rAng as a rotation around the axis defined by
+// the current facing vector in the L-System, then use that rotated position as the new
+// facing vector.  The rotation allows for the branching, and the rAng give the branching
+// a more natural look... usually.
+void LSystem::applyGrammarOp(float normDir, float rAng, float levelRatio){
+  // These are used to define a coordinate system for the quaternion rotation
+  Vector3f ax1, ax2, ax3;
   Vector3f a;
   Vector3f dif;
   Vector3f startPos;
   Vector4f startPosQ;
   float ratio;
-  float levelRatio;
   Quaternion<float> q;
+
+
+  // Add rotation to facing vector
+  // First figure out point off of axis to rotate
+  ax1 << facing;
+  ax1.normalize();
+
+  // Make sure axis1 and a are not equal
+  a << normDir, 0.0, 0.0;
+  if(a == ax1){
+    a << 0.0, 0.0, normDir;
+  }
+
+  // Generate coordinate system
+  ax2 << a;
+  ax2 = ax2.cross(ax1);
+  ax2.normalize();
+  ax3 << ax2;
+  ax3 = ax3.cross(ax1);
+  ax3.normalize();
+
+  // Find point to rotate around facing axis
+  ratio = (90.0-angle)/90.0;
+  dif = (ax1 - ax2);
+  startPos = (ratio * dif) + ax2;
+  startPos.normalize();
+  startPos = stepSize * startPos * levelRatio;
+        
+  q = AngleAxis<float>(static_cast<float>((rAng*M_PI)/180.0), ax1);
+  startPos = q * startPos;
+  startPos.normalize();
+  facing = startPos;
+
+}
+
+// Construct the skeleton of the L-System
+void LSystem::constructSystem(){
+  state << start;
+
+  // Maintain the state of the system during construction
+  std::stack<Vector3f> stateStackPos;
+  std::stack<Vector3f> stateStackFacing;
+  std::stack<int> stateStackLevel;
+
+  float levelRatio;
   int r;
-  float t, ta, tb;
+  float rAng, modAng1, modAng2;
   int currentLevel = 0;
   maxLevel = currentLevel;
 
   cout << "sentence: " << endl;
   for(unsigned int i =0; i < sentence.size(); ++i){
-    levelRatio = std::max(static_cast<float>(0.5), (static_cast<float>(levels) - static_cast<float>(currentLevel))/
-                  static_cast<float>(levels));
+    levelRatio = std::max(static_cast<float>(0.5), 
+                          (static_cast<float>(levels) - static_cast<float>(currentLevel))
+                           /static_cast<float>(levels));
+
+    // Apply a pseudo random angle change to the branch
     srand ( counter );
     counter = (counter*21)%UINT_MAX;
     r = rand() % 10000000+1;
-    t = (float)r/10000000.0;
+    rAng = (float)r/10000000.0;
 
-    if(t <= 0.25){ t = 90.0; }
-    else if(t <= 0.5){ t = 180.0; }
-    else if(t <= 0.75){ t = 270.0; }
-    else { t = 0.0; }
-
-    r = rand() % 10000000+1;
-    ta = (float)r/10000000.0;
-
-    ta = ta*5.0; 
+    if(rAng <= 0.25){ rAng = 90.0; }
+    else if(rAng <= 0.5){ rAng = 180.0; }
+    else if(rAng <= 0.75){ rAng = 270.0; }
+    else { rAng = 0.0; }
 
     r = rand() % 10000000+1;
-    tb = (float)r/10000000.0;
+    modAng1 = (float)r/10000000.0;
 
-    if(tb <= 0.5){
-      ta = -1.0*ta;
+    modAng1 = modAng1*5.0; 
+
+    r = rand() % 10000000+1;
+    modAng2 = (float)r/10000000.0;
+
+    if(modAng2 <= 0.5){
+      modAng2 = -1.0*modAng2;
     }
 
-    t +=ta;
+    // Add or subtract to rAng.  The constraints on ta and tb were determined through
+    // some experimentation to generate branches with "natural" looking angles.
+    rAng += modAng2;
 
-   cout << sentence[i];
+    cout << sentence[i];
 
+    // Parse through the sentence, generating the points of the L-System skeleton,
+    // and pushing or popping the state of the L-System to walk up and down branches
+    // as dictated by the grammar.
     switch(sentence[i]){
       case '-' :
-        // Add rotation to facing vector
-        // First figure out point off of axis to rotate
-        v1 << facing;
-        v1.normalize();
-
-        // Make sure v1 and a are not equal
-        a << -1.0, 0.0, 0.0;
-        if(a == v1){
-          a << 0.0, 0.0, -1.0;
-        }
-
-        // Generate local coordinate system
-        v2 << a;
-        v2 = v2.cross(v1);
-        v2.normalize();
-        v3 << v2;
-        v3 = v3.cross(v1);
-        v3.normalize();
-
-        // Find point to rotate around facing axis
-        ratio = (90.0-angle)/90.0;
-        dif = (v1 - v2);
-        startPos = (ratio * dif) + v2;
-        startPos.normalize();
-        startPos = stepSize * startPos* levelRatio;
-        
-        q = AngleAxis<float>(static_cast<float>((t*M_PI)/180.0), v1);
-        startPos = q * startPos;
-        startPos.normalize();
-        facing = startPos;
-        //cout << "  f: " << facing(0) << " " << facing(1) << " " << facing(2) << endl;
+        applyGrammarOp(-1.0, rAng, levelRatio);
         break;
 
       case '+' :
-        // Add rotation to facing vector
-        // First figure out point off of axis to rotate
-        v1 << facing;
-        v1.normalize();
-
-        // Make sure v1 and a are not equal
-        a << 1.0, 0.0, 0.0;
-        if(a == v1){
-          a << 0.0, 0.0, 1.0;
-        }
-
-        // Generate local coordinate system
-        v2 << a;
-        v2 = v2.cross(v1);
-        v2.normalize();
-        v3 << v2;
-        v3 = v3.cross(v1);
-        v3.normalize();
-
-        // Find point to rotate around facing axis
-        ratio = (90.0-angle)/90.0;
-        dif = (v1 - v2);
-        startPos = (ratio * dif) + v2;
-        startPos.normalize();
-        startPos = stepSize * startPos * levelRatio;
-        
-        q = AngleAxis<float>((t*M_PI)/180.0, v1);
-        startPos = q * startPos;
-        startPos.normalize();
-        facing = startPos;
-        //cout << "  f: " << facing(0) << " " << facing(1) << " " << facing(2) << endl;
+        applyGrammarOp(1.0, rAng, levelRatio);
         break;
 
       case '[' :
@@ -233,6 +214,7 @@ void LSystem::constructSystem(){
         stateStackFacing.push(facing);
         stateStackLevel.push(currentLevel);
         break;
+
       case ']' :
         state = stateStackPos.top();
         facing = stateStackFacing.top();
@@ -241,9 +223,11 @@ void LSystem::constructSystem(){
         stateStackFacing.pop();
         stateStackLevel.pop();
         break;
+
       case 'X' : case 'Y' : case 'f' :
         state = state + facing*stepSize*levelRatio;
         break;
+
       case 'F' : case 'A' : case 'B' : case 'C':
         coordList.push_back(state);
         levelList.push_back(currentLevel);
@@ -253,15 +237,16 @@ void LSystem::constructSystem(){
         currentLevel++;
         if(maxLevel < currentLevel){ maxLevel = currentLevel; }
         break;
+
       default:
         cout << "Sentence size is: " << sentence.size() << endl;
         cout << "   i: " << i << endl;
         throw string("Unhandled switch/case: " )+sentence[i];
     }
   }
-  cout << endl;
 }
 
+// Pull the grammar from the xml file
 void LSystem::getGrammar(){
   multimap<string, string>::iterator _i; 
   multimap<string, pair<string, string> >::iterator _j;
@@ -282,6 +267,7 @@ void LSystem::getGrammar(){
   printGrammar(); 
 }
 
+// Just draw the wire skeleton of the L-System
 void LSystem::drawSkeleton() const{
   std::vector<Vector3f>::const_iterator _p0;
   std::vector<Vector3f>::const_iterator _p1;
@@ -328,12 +314,17 @@ void LSystem::printGrammar() const{
   cout << endl;
 }
 
+// This method builds the mesh around the L-System skeleton.  We start by walking down
+// the skeleton and generating points to form a top and bottom cylinder for each skeleton
+// segment.  We then generate the indices for the polygons using these points.  The
+// result is a cylinder around each segment of the section of the L-System. 
 PolyMesh * LSystem::buildMesh() const{
   std::vector<Vector3f>::const_iterator _p0;
   std::vector<Vector3f>::const_iterator _p1;
   std::vector<int>::const_iterator _i;
+
   std::vector<Vector3f*> * points;
-  std::vector<std::vector<int> *> * polyIndex;
+  std::list<std::vector<int> *> * polyIndex;
   std::vector<std::vector<int> *>::iterator _pi;
   std::vector<int> * intList;
 
@@ -351,15 +342,18 @@ PolyMesh * LSystem::buildMesh() const{
 
   float modLevels = static_cast<float>(maxLevel);
 
-  r = 0.05;
-  R = 0.05;
+  r = 0.05; // Radius of the bottom ring of the cylinder
+  R = 0.05; // Radios of the top ring of the cylinder
   phi = 60.0;
-  N = 360/static_cast<int>(phi);
+  N = 360/static_cast<int>(phi); // Number of divisions around the base of the cylinder
 
   points = new std::vector<Vector3f*>();
-  polyIndex = new std::vector<std::vector<int> *>();
+  polyIndex = new std::list<std::vector<int> *>();
 
   // Project points around positions in coordinate list
+
+  // Go ahead and set aside enough space for the vector to hold all of the points
+  points->reserve(coordList.size()*(N*2));
   _i = levelList.begin();
   for(_p0 = coordList.begin(); _p0 != coordList.end(); _p0 = _p0+2){
     _p1  = _p0+1;
@@ -372,7 +366,6 @@ PolyMesh * LSystem::buildMesh() const{
     else{
       ratio1 = 0.005;
     }
-    theta = 0;
     uY << (*_p1) - (*_p0);
     uY.normalize();
     uX << 1.0, 0.0, 0.0;
@@ -386,7 +379,7 @@ PolyMesh * LSystem::buildMesh() const{
     uX = uZ.cross(uY);
     uX.normalize();
 
-    // Bottom ring
+    // Generate points around the bottom ring of the cylinder
     for(theta = 0.0; theta < 360.0; theta = theta + phi){
       newP = new Vector3f();
       m = AngleAxisf((0.0*M_PI)/180.0, uX)
@@ -399,12 +392,12 @@ PolyMesh * LSystem::buildMesh() const{
       points->push_back(newP); 
     }
 
-    // Top ring
+    // Generate points around the top ring of the cylinder
     for(theta = 0; theta < 360; theta = theta + phi){
       newP = new Vector3f();
       m = AngleAxisf((0.0*M_PI)/180.0, uX)
-           * AngleAxisf((theta*M_PI)/180.0, uY)
-           * AngleAxisf((0.0*M_PI)/180.0, uZ);
+          * AngleAxisf((theta*M_PI)/180.0, uY)
+          * AngleAxisf((0.0*M_PI)/180.0, uZ);
 
       (*newP) << uX*(R * ratio1);
       (*newP) << m* (*newP);
@@ -419,8 +412,8 @@ PolyMesh * LSystem::buildMesh() const{
     if(levelList[i] == levelList[i+1] || levelList[i] == levelList[i+1]-1){
       // Build individual polygons
       for(int j = 0; j < N-1; j++){
-        //cout << "j: " << j << "  N: " << N << endl;
         intList = new std::vector<int>();
+        intList->reserve(4);
         intList->push_back(static_cast<int>(j + N*i));
         intList->push_back(static_cast<int>(j + N*(i+1)));
         intList->push_back(static_cast<int>(j + N*(i+1) + 1));
@@ -428,6 +421,7 @@ PolyMesh * LSystem::buildMesh() const{
         polyIndex->push_back(intList);
       }
       intList = new std::vector<int>();
+      intList->reserve(4);
       intList->push_back(static_cast<int>(N-1 + N*i));
       intList->push_back(static_cast<int>(N-1 + N*(i+1)));
       intList->push_back(static_cast<int>(N*(i+1)));
@@ -435,20 +429,6 @@ PolyMesh * LSystem::buildMesh() const{
       polyIndex->push_back(intList);
     }
   }
-
-  cout << "Polygons before cleanup: " << polyIndex->size() << endl;
-  sort(polyIndex->begin(), polyIndex->end(), sortPoly);
-  for(_pi = polyIndex->begin()+1; _pi != polyIndex->end(); _pi++){
-    if((*_pi)->at(0) == (*(_pi-1))->at(0)){
-      if((*_pi)->at(1) == (*(_pi-1))->at(1)){
-        if((*_pi)->at(2) == (*(_pi-1))->at(2)){
-          delete (*_pi);
-          _pi = polyIndex->erase(_pi);
-        }
-      }
-    } 
-  }
-  cout << "Polygons after cleanup: " << polyIndex->size() << endl;
 
   return new PolyMesh(points, polyIndex, boundRad);
    
