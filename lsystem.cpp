@@ -143,15 +143,11 @@ void LSystem::constructSystem(){
     else if(t <= 0.75){ t = 270.0; }
     else { t = 0.0; }
 
-    srand ( counter );
-    counter = (counter*21)%UINT_MAX;
     r = rand() % 10000000+1;
     ta = (float)r/10000000.0;
 
     ta = ta*5.0; 
 
-    srand ( counter );
-    counter = (counter*21)%UINT_MAX;
     r = rand() % 10000000+1;
     tb = (float)r/10000000.0;
 

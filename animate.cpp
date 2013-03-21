@@ -77,8 +77,6 @@ void Animate::updateJoints(){
   bool wSet = false;
 
   timeInd1 = timeInd2 = 0;
-  cout << "CurKeyFrame: " << curKeyFrame << endl;
-  cout << "MaxKeyFrame: " << maxKeyFrame << endl;
   curKeyFrame = fmod(curKeyFrame + t, maxKeyFrame);
 
   // Find weight between two matricies that should be applied
